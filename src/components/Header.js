@@ -2,6 +2,24 @@ import React, {useState} from 'react';
 import {GrCart} from "react-icons/gr";
 import {Order} from "./Order";
 
+const ShowOrders = (props) => {
+    return (
+        <>
+            {props.orders.map(element => (
+                <Order key={element.id} item={element}/>
+            ))}
+        </>
+    )
+}
+
+const showNothing = () => {
+    return (
+        <>
+            <p>Пока карзина пуста</p>
+        </>
+    )
+}
+
 const Header = (props) => {
 
     let [cartOpen, setCartOpen] = useState(false);
@@ -25,10 +43,10 @@ const Header = (props) => {
                     {cartOpen && (
                         <div className={"shop-cart"}>
                             {
-                                props.orders.map(element => (
-                                    <Order key={element.id} item={element}/>
-                                ))
+                                props.orders.length > 0 ?
+                                    ShowOrders(props) : showNothing()
                             }
+
                         </div>
                     )}
                 </div>

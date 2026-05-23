@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import {GrCart} from "react-icons/gr";
+import {Order} from "./Order";
 
-const Header = () => {
+const Header = (props) => {
 
     let [cartOpen, setCartOpen] = useState(false);
 
@@ -23,7 +24,11 @@ const Header = () => {
 
                     {cartOpen && (
                         <div className={"shop-cart"}>
-
+                            {
+                                props.orders.map(element => (
+                                    <Order key={element.id} item={element}/>
+                                ))
+                            }
                         </div>
                     )}
                 </div>

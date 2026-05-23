@@ -10,7 +10,9 @@ export default class Item extends Component {
                 <p>{this.props.item.desc}</p>
                 <b>{this.props.item.price} $</b>
 
-                <div className="add-to-cart">+</div>
+                <div
+                    className="add-to-cart"
+                    onClick={()=>{this.props.onAdd(this.props.item)}} >+</div>
             </div>
         )
     }

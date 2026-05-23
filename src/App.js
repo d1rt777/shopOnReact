@@ -77,22 +77,24 @@ class App extends React.Component {
             ]
         }
 
-        this.addToOrder() = this.addToOrder.bind(this);
+        this.addToOrder = this.addToOrder.bind(this);
     }
 
     render() {
         return (
             <div className="wraper">
-                <Header/>
+                <Header
+                    orders={this.state.orders}
+                />
                 <Items
-                    items={this.state.items}/>
+                    items={this.state.items} onAdd={this.addToOrder} />
                 <Footer/>
             </div>
         )
     }
 
-    addToOrder(){
-
+    addToOrder(item){
+        this.setState({orders: [...this.state.orders, item] });
     }
 }
 

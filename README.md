@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+# PAGES: https://d1rt777.github.io/shopOnReact/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

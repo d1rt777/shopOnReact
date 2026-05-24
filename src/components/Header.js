@@ -3,6 +3,13 @@ import {GrCart} from "react-icons/gr";
 import {Order} from "./Order";
 
 const ShowOrders = (props) => {
+
+    let summProducts = 0
+
+    props.orders.forEach(element => {
+        summProducts += Number.parseFloat(element.price)
+    });
+
     return (
         <>
             {props.orders.map(element => (
@@ -10,6 +17,8 @@ const ShowOrders = (props) => {
                     onDelete={props.onDelete}
                     key={element.id} item={element}/>
             ))}
+
+            <p className='summ-products'><b> Сумма: {summProducts.toFixed(2)} $</b></p>
         </>
     )
 }

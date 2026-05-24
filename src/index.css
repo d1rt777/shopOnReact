@@ -197,6 +197,7 @@ header .shop-cart {
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
+    align-items: center;
 }
 .shop-cart .item img{
     width: 30%;
@@ -207,7 +208,20 @@ header .shop-cart {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    margin-bottom: 20px;
 }
 .shop-cart .item .info b{
     color: #858585;
+}
+
+.trash-btn{
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    transition: all 500ms ease;
+    color: #dc3c3d;
+}
+
+.trash-btn:hover{
+    transform: scale(1.3);
 }

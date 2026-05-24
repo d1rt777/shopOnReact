@@ -77,7 +77,8 @@ class App extends React.Component {
             ]
         }
 
-        this.addToOrder = this.addToOrder.bind(this);
+        this.addToOrder = this.addToOrder.bind(this)
+        this.deleteOrder = this.deleteOrder.bind(this);
     }
 
     render() {
@@ -85,12 +86,18 @@ class App extends React.Component {
             <div className="wraper">
                 <Header
                     orders={this.state.orders}
+                    onDelete={this.deleteOrder}
                 />
                 <Items
-                    items={this.state.items} onAdd={this.addToOrder}/>
-                <Footer/>
+                    items={this.state.items} onAdd={this.addToOrder} />
+                <Footer />
             </div>
         )
+    }
+
+    deleteOrder(id) {
+        this.setState({orders: this.state.orders.filter(element=> element.id !== id)})
+
     }
 
     addToOrder(item) {
@@ -104,7 +111,7 @@ class App extends React.Component {
         })
 
         if (!isInArray) {
-            this.setState({orders: [...this.state.orders, item]});
+            this.setState({ orders: [...this.state.orders, item] });
         }
     }
 }

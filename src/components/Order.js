@@ -1,4 +1,6 @@
 import React, {Component} from "react";
+import {GrTrash} from "react-icons/gr";
+
 
 export class Order extends Component {
     render() {
@@ -10,7 +12,10 @@ export class Order extends Component {
                     <h2>{this.props.item.title}</h2>
                     <b>{this.props.item.price} $</b>
                 </div>
-
+                <GrTrash
+                    className="trash-btn"
+                    onClick={() => this.props.onDelete(this.props.item.id)}
+                />
             </div>
         )
     }
